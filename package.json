@@ -4,7 +4,7 @@
   "description": "node js backend",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,6 @@
   "homepage": "https://github.com/kyhnlbyrk/todo-backend#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "mysql2": "^2.3.3"
   }
 }
