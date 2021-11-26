@@ -55,3 +55,18 @@ exports.deleteTodo = async (req, res, next) => {
         next(error);
     }
 }
+
+exports.editTodo = async (req, res, next) => {
+    try {
+        const { id } = req.body;
+        const { name } = req.body;
+        if(!id) throw { code: 400, message: 'Id can not be empty!'};
+        if(!name) throw { code: 400, message: 'Name can not be empty!'};
+        todo = await DBOp.editTodo(id, name);
+        console.log("id = " + id + " is editted name = " + name);
+        res.status(201).json();
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}

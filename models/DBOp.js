@@ -22,6 +22,11 @@ class DBOp {
         let sql = "DELETE FROM todo_list WHERE id = ?";
         return db.execute(sql, [id]);
     }
+
+    static editTodo(id, name) {
+        let sql = "UPDATE todo_list SET name = ?, modified_time = NOW() WHERE id = ? AND status <> 1";
+        return db.execute(sql, [name, id]);
+    }
 }
 
 module.exports = DBOp;

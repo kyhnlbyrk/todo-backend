@@ -5,7 +5,8 @@ const router = express.Router();
 router.route("/getTodoList").get(controllers.getToDoList);
 router.route("/createNewTodo").post(controllers.createNewTodo);
 router.route("/changeStatus").post(controllers.changeStatus);
-router.route("/deleteTodo").delete(controllers.deleteTodo);
+router.route("/deleteTodo").post(controllers.deleteTodo);
+router.route("/editTodo").post(controllers.editTodo);
 
 
 
