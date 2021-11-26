@@ -6,8 +6,10 @@ class DBOp {
         return db.execute(sql, [name]);
     }
 
-    static getToDoList() {
-        let sql = "SELECT * FROM todo_list";
+    static getToDoList(orderType, searchParam) {
+        const search = ('%' + searchParam + '%');
+        const sql = db.format("SELECT * FROM todo_list WHERE name LIKE ? ORDER BY status ASC, modified_time " + (orderType === 'asc' ? 'ASC;' : 'DESC;'), [search]);
+        console.log('getToDoList sql = ', sql);
         return db.execute(sql);
     }
 

@@ -2,7 +2,12 @@ const DBOp = require('../models/DBOp')
 
 exports.getToDoList = async (req, res, next) => {
     try {
-        const [todoList, _] = await DBOp.getToDoList();
+        const search = req.query.search;
+        const orderType = req.query.orderType;
+        console.log(orderType);
+        console.log(search);
+        const [todoList, _, query] = await DBOp.getToDoList(orderType, search);
+        console.log('todoList sql = ', query);
         res.status(200).json(todoList);
     } catch (error) {
         next(error);
