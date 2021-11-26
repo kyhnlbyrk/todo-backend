@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 app.use(express.json());
 
-const whitelist = ["https://kayahan-todo-list-react.herokuapp.com/"]
+const whitelist = ["https://kayahan-todo-list-react.herokuapp.com"]
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {
